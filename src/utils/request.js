@@ -1,7 +1,8 @@
 import axios from 'axios'; 
 
 const request = axios.create({
-    baseURL: 'http://toutiao.itheima.net/',
+    baseURL: 'http://toutiao.itheima.net',
+    // baseURL: 'http://api-toutiao-web.itheima.net'
     timeout: 1000,
 })
 

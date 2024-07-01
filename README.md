@@ -35,8 +35,8 @@ npm run lint
 ```
 
 ### 学习视频bilibili 
-https://www.bilibili.com/video/BV1bg411V769?p=4&spm_id_from=pageDriver&vd_source=3ed74f23243ede31d89a5d26830b2122
-
+- https://www.bilibili.com/video/BV1bg411V769?p=4&spm_id_from=pageDriver&vd_source=3ed74f23243ede31d89a5d26830b2122
+- https://github.com/ADKcodeXD/Heimatoutiao 
 
 ### api 文档 
 http://toutiao.itheima.net/api-pc.html#u83b7u53d6u6240u6709u9891u9053u5217u88680a3ca20id3du83b7u53d6u6240u6709u9891u9053u5217u88683e203ca3e
@@ -59,4 +59,5 @@ http://toutiao.itheima.net/api-pc.html#u83b7u53d6u6240u6709u9891u9053u5217u88680
     - https://www.iconfont.cn/manage/index?spm=a313x.icontype_collection.i1.db775f1f3.62033a81PSeZDB&manage_type=myprojects&projectId=4601917 
 
 
-https://github.com/ADKcodeXD/Heimatoutiao 
+### 进度
+    - p29 - 看完了

@@ -4,14 +4,14 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 
-import './styles/index.less' // 加载全局样式 
-
 // 引入vant组件 和 样式 
 import Vant from 'vant';
 import 'vant/lib/index.css';
 
 //引入 amfe-flexible 自动设置 rem 布局适配（html 标签字体大小）
 import 'amfe-flexible'
+
+import './styles/index.less' // 加载全局样式 
 
 const app = createApp(App)
 
