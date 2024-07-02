@@ -12,6 +12,8 @@
                     :show-error-message = "false"
                     :show-error="false"
                     :validate-first="true"
+                    ref="loginForm"
+                    
         >       
             <van-cell-group inset>
                 <van-field
@@ -21,6 +23,7 @@
                     input-align="left"
                     center
                     :rules="formRules.mobile"
+                    name="mobile"
                 />
                 <van-field
                     v-model="user.code"
@@ -29,9 +32,27 @@
                     input-align="left"
                     center
                     :rules="formRules.code"
+                    name="code"
                 >
                     <template #button>
-                        <van-button class="send-btn" size="small" round>Send Code</van-button>
+                        <van-count-down 
+                            v-if="countDownShow"
+                            :time=" countDownTime * 1000" 
+                            :auto-start = "true"
+                            ref="countDownTimer" 
+                            format="ss s"
+                            @finish="onCountDownFinish"
+                        />
+
+                        <van-button 
+                            class="send-btn" 
+                            size="small" 
+                            round
+                            v-else
+                            @click="onGetCode"
+                        >
+                            Send Code
+                        </van-button>
                     </template> 
                 </van-field>
 
@@ -55,7 +76,7 @@
 
 <script>
 import { login } from '@/api/user.js'
-import { showLoadingToast, closeToast, showSuccessToast, showFailToast } from 'vant';  
+import { showLoadingToast, closeToast, showSuccessToast, showFailToast, showToast} from 'vant';  
 
 export default {
     name: 'LoginIndex', 
@@ -69,13 +90,15 @@ export default {
             formRules: {
                 mobile: [
                     { required: true, message: 'please enter mobile' }, 
-                    { pattern: /^1\d{10}$/, message: 'please enter valid mobile' }
+                    { pattern: /[1-9]{11}$/, message: 'please enter valid mobile' }
                 ], 
                 code: [
                     { required: true, message: 'please enter verification code' }, 
                     { pattern: /[1-9]{6}$/, message: 'please enter valid verification code' }
                 ]
-            }
+            },
+            countDownShow: false, 
+            countDownTime: 30
         }
     },
     methods: {
@@ -100,6 +123,7 @@ export default {
                 clearInterval(timer);
                 // closeToast();
                 showSuccessToast('Login Success') // 新的提示会自动关掉之前的提示，不需要手动关闭 
+                this.$store.commit('setUser', 'fakeToken')
             }
             }, 1000);
                 
@@ -112,7 +136,23 @@ export default {
                     position: 'top'
                 })
             }
+        }, 
+        async onGetCode(){
+            // 验证 mobile 
+            try {
+                await this.$refs['loginForm'].validate('mobile');
+                this.countDownShow = true
+            } catch (error) {
+                showToast({
+                    message: error.message, 
+                    position: 'top'
+                })
+            }
+        }, 
+        onCountDownFinish(){
+            this.countDownShow = false 
         }
+
     },
 }
 </script>

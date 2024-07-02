@@ -58,6 +58,13 @@ http://toutiao.itheima.net/api-pc.html#u83b7u53d6u6240u6709u9891u9053u5217u88680
     - 课程 p16 有讲解 
     - https://www.iconfont.cn/manage/index?spm=a313x.icontype_collection.i1.db775f1f3.62033a81PSeZDB&manage_type=myprojects&projectId=4601917 
 
+### 技术包含 
+    - vue3 
+    - vant 
+    - vuex 
+    - axios 
+    - 
+
 
 ### 进度
     - p29 - 看完了
