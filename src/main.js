@@ -29,8 +29,8 @@ const store = createStore({
 
 const app = createApp(App)
 
+app.use(store);
 app.use(router)
 app.use(Vant) // 全局注册vant button 
-app.use(store);
 
 app.mount('#app')

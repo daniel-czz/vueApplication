@@ -90,11 +90,11 @@ export default {
             formRules: {
                 mobile: [
                     { required: true, message: 'please enter mobile' }, 
-                    { pattern: /[1-9]{11}$/, message: 'please enter valid mobile' }
+                    { pattern: /[0-9]{11}$/, message: 'please enter valid mobile' }
                 ], 
                 code: [
                     { required: true, message: 'please enter verification code' }, 
-                    { pattern: /[1-9]{6}$/, message: 'please enter valid verification code' }
+                    { pattern: /[0-9]{6}$/, message: 'please enter valid verification code' }
                 ]
             },
             countDownShow: false, 
@@ -124,6 +124,7 @@ export default {
                 // closeToast();
                 showSuccessToast('Login Success') // 新的提示会自动关掉之前的提示，不需要手动关闭 
                 this.$store.commit('setUser', 'fakeToken')
+                this.$router.back()
             }
             }, 1000);
                 
