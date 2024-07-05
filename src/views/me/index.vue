@@ -71,7 +71,7 @@
 
         <van-cell title="Messages" url="" is-link />
         <van-cell title="AI Chatbot" class="mb-4" url="" is-link />
-        <van-cell v-if="user" class="logout-cell" title="Log out" url="" />
+        <van-cell v-if="user" @click="onLogout()" class="logout-cell" title="Log out" url="" />
         <!-- <van-button type="primary" block>块级Log out元素</van-button> -->
 
 
@@ -81,8 +81,26 @@
 </template>
 <script>
 import { mapState } from 'vuex';
+import { showConfirmDialog } from 'vant';
 
 export default {
+    methods: {
+        onLogout(){
+            showConfirmDialog({
+                title: 'Logout',
+                message: 'Wanna Logout???'
+            })
+            .then(() => {
+                // on confirm
+                this.$store.commit('setUser', null)
+                // this.$router.push('/login')
+            })
+            .catch(() => {
+                // on cancel
+            });
+        }, 
+        
+    },
     computed: {
         localcomput(){
 
